@@ -39,7 +39,7 @@ app.get('/visits', async (req, res) => {
 
 app.listen(8001, (err) => {
     if (err) {
-        console.log('Errr');
+        console.log('Err');
     }
     console.log('Connected 8001');
 });
