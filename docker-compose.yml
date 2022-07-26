@@ -24,6 +24,8 @@ services:
     build: 
       dockerfile: Dockerfile
       context: ./backend
+    volumes:
+      - ./backend:/app
     ports:
       - "8001:8001"
     networks:
@@ -35,6 +37,8 @@ services:
     build: 
       dockerfile: Dockerfile
       context: ./frontend
+    volumes:
+      - ./frontend:/app
     ports:
       - "3000:3000"
 
