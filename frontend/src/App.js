@@ -18,12 +18,12 @@ function App() {
 
   return (
     <>
+       <div>test</div>
        {visits.map((list, index)=>{
         return (
         <div key={index}>
           <div>{list.v_name}</div>
           <div>{list.v_datetime}</div>
-          <div>test</div>
         </div>
        )
       })}
