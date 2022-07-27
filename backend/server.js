@@ -16,6 +16,7 @@ const db_setting = {
 
 app.get('/visits', async (req, res) => {
     
+    res.set({ 'Access-Control-Allow-Origin': '*' })
     let connection
     try {
         connection = await mysql.createConnection(db_setting)
