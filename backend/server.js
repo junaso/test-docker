@@ -22,6 +22,7 @@ app.get('/visits', async (req, res) => {
    
     let connection
     try {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
         connection = await mysql.createConnection(db_setting)
         await connection.beginTransaction();
         const [row1] = await connection.query( 'select v_name, v_datetime from visits')
