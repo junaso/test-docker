@@ -28,5 +28,6 @@ jobs:
       - name: Docker compoes
         run: |
          cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
+         docker-compose rm
          docker-compose up
           
