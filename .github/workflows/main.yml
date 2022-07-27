@@ -9,13 +9,17 @@ on:
 
 # 환경설정
 jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      # github repository에서 checkout
+      - uses: actions/checkout@v2
   deploy:
+    needs: build
     name: Deploy
     runs-on: [ self-hosted, label-go ] # AWS ./configure에서 사용할 label명
     steps:
-      - uses: actions/checkout@v2
-        with:
-         set-safe-directory: '/home/ec2-user/actions-runner/_work/test-docker/test-docker/database/data'
       - name: Login to ghcr
         uses: docker/login-action@v1
         with:
