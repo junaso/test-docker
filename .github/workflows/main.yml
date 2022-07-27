@@ -28,7 +28,7 @@ jobs:
       - name: Docker stop
         run: docker-compose stop
       - name: Docker remove
-        run: docker-compose rm
+        run: docker-compose rm -f
       - name: Docker compose
         run: |  
          cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
