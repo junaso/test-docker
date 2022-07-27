@@ -29,8 +29,8 @@ jobs:
       - name: Docker run
         run: |
           docker-compose rm
-          docker image rm test-docker_frontend
-          docker image rm test-docker_backend
-          docker image rm test-docker_database
+          docker image rmi test-docker_frontend
+          docker image rmi test-docker_backend
+          docker image rmi test-docker_database
           docker compose up
           
