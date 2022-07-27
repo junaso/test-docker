@@ -23,7 +23,7 @@ function App() {
         <div key={index}>
           <div>{list.v_name}</div>
           <div>{list.v_datetime}</div>
-          <dic>test</div>
+          <div>test</div>
         </div>
        )
       })}
