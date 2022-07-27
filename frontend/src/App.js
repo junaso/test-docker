@@ -8,7 +8,7 @@ function App() {
 
  useEffect(()=>{
   console.log("test_useEffect")
-  axios.get('http://localhost:8001/visits').then((res)=> {
+  axios.get('/visits').then((res)=> {
     console.log("test_axios")
     console.log(res.data)
     setVisitis(res.data)
