@@ -17,7 +17,7 @@ function App() {
 
 
   return (
-    <>
+    <div>
        <div>test</div>
        {visits.map((list, index)=>{
         return (
@@ -27,7 +27,7 @@ function App() {
         </div>
        )
       })}
-   </>
+   </div>
   );
 }
 
