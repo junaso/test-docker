@@ -28,8 +28,9 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}   
       - name: Docker run
         run: |
-          docker-compose kill
           docker-compose rm
-          docker image rm
+          docker image rm test-docker_frontend
+          docker image rm test-docker_backend
+          docker image rm test-docker_database
           docker compose -f ./docker-compose.yml up
           
