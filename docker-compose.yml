@@ -45,4 +45,4 @@ services:
       - "443:3000"
 
 networks:
-  db-net:s
+  db-net:
