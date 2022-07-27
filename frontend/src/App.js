@@ -21,8 +21,9 @@ function App() {
        {visits.map((list, index)=>{
         return (
         <div key={index}>
-          <div> {list.v_name}</div>
+          <div>{list.v_name}</div>
           <div>{list.v_datetime}</div>
+          <dic>test</div>
         </div>
        )
       })}
