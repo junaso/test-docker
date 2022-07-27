@@ -3,17 +3,12 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 
 function App() { 
- 
- const Axios = AxiosBase.create({
-        baseURL:"http://localhost:8001",
-        header:{'X-Requested-With': 'XMLHttpRequest'}
-    })
 
  const [visits, setVisitis] = useState([])
 
  useEffect(()=>{
   console.log("test_useEffect")
-  axios.get('/visits').then((res)=> {
+  axios.get('http://localhost:8001/visits').then((res)=> {
     console.log("test_axios")
     console.log(res.data)
     setVisitis(res.data)
