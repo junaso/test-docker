@@ -5,7 +5,11 @@ const cors = require('cors');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({
+    origin: 'http://localhost:3000', //アクセス許可するオリジン
+    credentials: true, //レスポンスヘッダーにAccess-Control-Allow-Credentials追加
+    optionsSuccessStatus: 200 //レスポンスstatusを200に設定
+}))
 
 const db_setting = {
     host : "database",
@@ -15,8 +19,7 @@ const db_setting = {
 }
 
 app.get('/visits', async (req, res) => {
-    
-    res.set({ 'Access-Control-Allow-Origin': '*' })
+   
     let connection
     try {
         connection = await mysql.createConnection(db_setting)
