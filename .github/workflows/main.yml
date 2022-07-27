@@ -20,11 +20,11 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }} 
-      - name: Database Data Move
-        run: sudo mv /home/ec2-user/actions-runner/_work/test-docker/test-docker/database/data /home    
+#       - name: Database Data Move
+#         run: sudo mv /home/ec2-user/actions-runner/_work/test-docker/test-docker/database/data /home    
       - uses: actions/checkout@v3
-      - name: Database Data return
-        run: sudo mv /home/data /home/ec2-user/actions-runner/_work/test-docker/test-docker/database 
+#       - name: Database Data return
+#         run: sudo mv /home/data /home/ec2-user/actions-runner/_work/test-docker/test-docker/database 
       - name: Docker stop
         run: docker-compose stop 
       - name: Docker remove
