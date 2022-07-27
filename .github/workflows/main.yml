@@ -9,14 +9,8 @@ on:
 
 # 환경설정
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      # github repository에서 checkout
-      - uses: actions/checkout@v2
+      
   deploy:
-    needs: build
     name: Deploy
     runs-on: [ self-hosted, label-go ] # AWS ./configure에서 사용할 label명
     steps:
@@ -25,8 +19,14 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_TOKEN }}   
-      - name: Docker run
+          password: ${{ secrets.GHCR_TOKEN }} 
+      - name: Database Data Move
+        run: mv /home/ec2-user/actions-runner/_work/test-docker/test-docker/database/data /home    
+      - uses: actions/checkout@v3
+      - name: Database Data return
+        run: mv /home/data /home/ec2-user/actions-runner/_work/test-docker/test-docker/database 
+      - name: Docker compoes
         run: |
-          docker compose up
+         cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
+         docker-compose up
           
