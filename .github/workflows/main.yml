@@ -12,7 +12,7 @@ jobs:
       
   deploy:
     name: Deploy
-    runs-on: [ self-hosted, label-go ] # AWS ./configure에서 사용할 label명
+    runs-on: [ self-hosted, label-docker ] # AWS ./configure에서 사용할 label명
     steps:
       - name: Login to ghcr
         uses: docker/login-action@v1
@@ -26,13 +26,9 @@ jobs:
       - name: Database Data return
         run: sudo mv /home/data /home/ec2-user/actions-runner/_work/test-docker/test-docker/database 
       - name: Docker stop
-        run: |
-         cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
-         docker-compose stop 
+        run: docker-compose stop 
       - name: Docker remove
-        run: |
-         cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
-         docker-compose rm -f
+        run: docker-compose rm -f
       - name: Docker compose
         run: |  
          cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
