@@ -21,10 +21,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }} 
       - name: Database Data Move
-        run: mv /home/ec2-user/actions-runner/_work/test-docker/test-docker/database/data /home    
+        run: sudo mv /home/ec2-user/actions-runner/_work/test-docker/test-docker/database/data /home    
       - uses: actions/checkout@v3
       - name: Database Data return
-        run: mv /home/data /home/ec2-user/actions-runner/_work/test-docker/test-docker/database 
+        run: sudo mv /home/data /home/ec2-user/actions-runner/_work/test-docker/test-docker/database 
       - name: Docker compoes
         run: |
          cd /home/ec2-user/actions-runner/_work/test-docker/test-docker
