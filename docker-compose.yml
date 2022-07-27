@@ -24,6 +24,7 @@ services:
     build: 
       dockerfile: Dockerfile
       context: ./backend
+    restart: always
     volumes:
       - ./backend:/app
     ports:
@@ -37,10 +38,11 @@ services:
     build: 
       dockerfile: Dockerfile
       context: ./frontend
+    restart: always
     volumes:
       - ./frontend:/app
     ports:
-      - "3000:3000"
+      - "80:3000"
 
 networks:
   db-net:
