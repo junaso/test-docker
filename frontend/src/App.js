@@ -8,8 +8,8 @@ function App() {
 
  useEffect(()=>{
   console.log("test_useEffect")
-  axios.get('/visits').then((res)=> {
-    console.log("test_axios")
+  axios.get('http://localhost:8001/visits').then((res)=> {
+    console.log("test_aios")
     console.log(res.data)
     setVisitis(res.data)
   })
@@ -17,17 +17,16 @@ function App() {
 
 
   return (
-    <div>
-       <div>test</div>
+    <>
        {visits.map((list, index)=>{
         return (
         <div key={index}>
-          <div>{list.v_name}</div>
+          <div> {list.v_name}</div>
           <div>{list.v_datetime}</div>
         </div>
        )
       })}
-   </div>
+   </>
   );
 }
 
